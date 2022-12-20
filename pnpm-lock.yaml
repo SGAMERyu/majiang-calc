@@ -2,12 +2,15 @@ lockfileVersion: 5.4
 
 specifiers:
   '@unocss/reset': ^0.47.5
+  '@unocss/transformer-directives': ^0.47.6
   '@vitejs/plugin-vue': ^3.2.0
   '@vueuse/core': ^9.6.0
   esno: ^0.16.3
   osrc-cli: 0.0.5-beta
   qrcode: ^1.5.1
   qrcode-terminal: ^0.12.0
+  sass: ^1.57.1
+  seedrandom: ^3.0.5
   tsup: ^6.5.0
   unocss: ^0.47.5
   unplugin-auto-import: ^0.12.0
@@ -20,19 +23,22 @@ dependencies:
   '@vueuse/core': 9.6.0_vue@3.2.45
   qrcode: 1.5.1
   qrcode-terminal: 0.12.0
+  seedrandom: 3.0.5
   vue: 3.2.45
   wechaty: 1.20.2
 
 devDependencies:
   '@unocss/reset': 0.47.5
+  '@unocss/transformer-directives': 0.47.6
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.5+vue@3.2.45
   esno: 0.16.3
   osrc-cli: 0.0.5-beta
+  sass: 1.57.1
   tsup: 6.5.0
   unocss: 0.47.5_vite@3.2.5
   unplugin-auto-import: 0.12.0_@vueuse+core@9.6.0
   unplugin-vue-components: 0.22.11_vue@3.2.45
-  vite: 3.2.5
+  vite: 3.2.5_sass@1.57.1
 
 packages:
 
@@ -729,6 +735,10 @@ packages:
     resolution: {integrity: sha512-KADysCd6JEIowGB6INGgZRuYhaaxrxiQXl9Xh/V+H4bgjtaNDxYyvZ2qKx5+u/kB4U9iSI0ULxBAY3oyqZ/Yjw==}
     dev: true
 
+  /@unocss/core/0.47.6:
+    resolution: {integrity: sha512-Pjg/NdpuTwZk2Ns3bzI/3XVPuXU+AQ78Sw+9QJyMgA56dArd3TlpNDN6UTOD9XAK6mxdPUu7rNSKpNTLpBW2og==}
+    dev: true
+
   /@unocss/inspector/0.47.5:
     resolution: {integrity: sha512-voGndZeAZxMg9H4Af9rbUh3rEXTQGgIq5k9jKI1tJF6nrBLDO6QXdK835DA/3x+oxnlzPX76QMc/spSUAwJZeQ==}
     dependencies:
@@ -819,6 +829,13 @@ packages:
       css-tree: 2.3.0
     dev: true
 
+  /@unocss/transformer-directives/0.47.6:
+    resolution: {integrity: sha512-vRY9bNhE+iNlRpsnky86MtKpRb8ipk3IHvtuRkK5DSjcjn7RGmh5ZpH9pzg39NvbWtRYq5/EN19riIYQHRetnA==}
+    dependencies:
+      '@unocss/core': 0.47.6
+      css-tree: 2.3.0
+    dev: true
+
   /@unocss/transformer-variant-group/0.47.5:
     resolution: {integrity: sha512-j0h6nmmabxzW/rMy/AyvdRoWYc+T7SxZqLA2QRly6lEO0SaCY7MYl3Ia0SKwwuoe8HSmp+xbecFguC8ExXOncg==}
     dependencies:
@@ -838,7 +855,7 @@ packages:
       '@unocss/scope': 0.47.5
       '@unocss/transformer-directives': 0.47.5
       magic-string: 0.26.7
-      vite: 3.2.5
+      vite: 3.2.5_sass@1.57.1
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -850,7 +867,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.2.5
+      vite: 3.2.5_sass@1.57.1
       vue: 3.2.45
     dev: true
 
@@ -2200,6 +2217,10 @@ packages:
       '@types/node': 16.9.1
     dev: false
 
+  /immutable/4.1.0:
+    resolution: {integrity: sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==}
+    dev: true
+
   /inflight/1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
     dependencies:
@@ -3319,6 +3340,16 @@ packages:
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
+  /sass/1.57.1:
+    resolution: {integrity: sha512-O2+LwLS79op7GI0xZ8fqzF7X2m/m8WFfI02dHOdsK5R2ECeS5F62zrwg/relM1rjSLy7Vd/DiMNIvPrQGsA0jw==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.1.0
+      source-map-js: 1.0.2
+    dev: true
+
   /sax/1.2.4:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
     dev: false
@@ -3326,6 +3357,10 @@ packages:
   /scule/1.0.0:
     resolution: {integrity: sha512-4AsO/FrViE/iDNEPaAQlb77tf0csuq27EsVpy6ett584EcRTp6pTDLoGWVxCD77y5iU5FauOvhsI4o1APwPoSQ==}
     dev: true
+
+  /seedrandom/3.0.5:
+    resolution: {integrity: sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==}
+    dev: false
 
   /semver/7.3.8:
     resolution: {integrity: sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==}
@@ -3864,7 +3899,7 @@ packages:
       extsprintf: 1.3.0
     dev: false
 
-  /vite/3.2.5:
+  /vite/3.2.5_sass@1.57.1:
     resolution: {integrity: sha512-4mVEpXpSOgrssFZAOmGIr85wPHKvaDAcXqxVxVRZhljkJOMZi1ibLibzjLHzJvcok8BMguLc7g1W6W/GqZbLdQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -3893,6 +3928,7 @@ packages:
       postcss: 8.4.19
       resolve: 1.22.1
       rollup: 2.79.1
+      sass: 1.57.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
